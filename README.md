@@ -47,3 +47,7 @@ All endpoints will return a list of Game objects.
 ## Notes
 
 - I'm not using any Interfaces. This is done for simplicity.
+
+## Possible improvements
+
+- Use the display name property of the TestMethod to create test names that more closely tie in to the Acceptance criteria. (This was acting a bit unpredictably so I removed it from the moment)
