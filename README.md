@@ -43,3 +43,7 @@ All endpoints will return a list of Game objects.
 
 - [ ] Can Pass in a game to finalize when it is the only game in progress and have empty list returned.
 - [ ] Can Pass in a game to finalize when multiple games are in progress and have a correctly ordered list returned with the finalized game removed.
+
+## Notes
+
+- I'm not using any Interfaces. This is done for simplicity.
