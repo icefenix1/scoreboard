@@ -50,7 +50,7 @@ public class ScoreBoard
         return Matches.IndexOf(item);
     }
 
-    private List<Game> Get()
+    public List<Game> Get()
     {   
         return Matches.OrderByDescending(ts => ts.TotalScore).ThenByDescending(start => start.TimeStarted).Select(sel => sel.CurrentGame).ToList();
     }
