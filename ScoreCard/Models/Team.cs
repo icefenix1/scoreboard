@@ -15,5 +15,15 @@ namespace ScoreCard.Models
             Name = name;
             Score = score;
         }
+
+        public override bool Equals(object obj)
+        {
+            return Name == ((Team)obj).Name && Score == ((Team)obj).Score;
+        }
+        
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }

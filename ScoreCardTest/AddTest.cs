@@ -14,13 +14,13 @@ public class AddTest
         new Game(new Team("Uruguay",0), new Team("Italy",0)),
         new Game(new Team("Argentina",0), new Team("Australia",0))};
 
-    private readonly List<Game> ExpectedMatchList = new List<Game> {
+    private  List<Game> ExpectedMatchList = new List<Game> {
         new Game(new Team("South Africa", 0), new Team("Norway",0)),
-        new Game(new Team("Mexico", 0), new Team("Canada",0)),
-        new Game(new Team("Spain",0), new Team("Brazil",0)),
-        new Game(new Team("Germany",0), new Team("France",0)),
+        new Game(new Team("Argentina",0), new Team("Australia",0)),
         new Game(new Team("Uruguay",0), new Team("Italy",0)),
-        new Game(new Team("Argentina",0), new Team("Australia",0))};        
+        new Game(new Team("Germany",0), new Team("France",0)),
+        new Game(new Team("Spain",0), new Team("Brazil",0)),
+        new Game(new Team("Mexico", 0), new Team("Canada",0))};        
 
     private readonly Game CreatedGame = new Game(new Team("South Africa", 0), new Team("Norway",0));
 
@@ -46,7 +46,7 @@ public class AddTest
 
         var Matches = Board.Add(CreatedGame);       
 
-        Assert.AreEqual(new List<Game>{CreatedGame},Matches);
+        CollectionAssert.AreEqual(new List<Game>{CreatedGame},Matches);
     }
 
     [TestMethod]
@@ -54,8 +54,8 @@ public class AddTest
     {
         var Board = CreatePopulatedScoreBoard(); 
 
-        var Matches = Board.Add(CreatedGame);       
+        var Matches = Board.Add(CreatedGame);
 
-        Assert.AreEqual(ExpectedMatchList,Matches);
+        CollectionAssert.AreEqual(ExpectedMatchList,Matches);
     }
 }

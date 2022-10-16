@@ -6,14 +6,6 @@ namespace ScoreCardTest;
 [TestClass]
 public class FinalizeTest
 {
-
-    private readonly List<Game> ExpectedMatchList = new List<Game> {
-        new Game(new Team("Mexico", 0), new Team("Canada",0)),
-        new Game(new Team("Spain",0), new Team("Brazil",0)),
-        new Game(new Team("Germany",0), new Team("France",0)),
-        new Game(new Team("Uruguay",0), new Team("Italy",0)),
-        new Game(new Team("Argentina",0), new Team("Australia",0))};
-
     private readonly List<Game> InProgressMatchList = new List<Game> {
         new Game(new Team("South Africa", 0), new Team("Norway",0)),
         new Game(new Team("Mexico", 0), new Team("Canada",0)),
@@ -54,7 +46,7 @@ public class FinalizeTest
 
         var Matches = Board.Remove(RemovedGame);       
 
-        Assert.AreEqual(new List<Game>(),Matches);
+        CollectionAssert.DoesNotContain(Matches,RemovedGame);
     }
 
     [TestMethod]
@@ -64,6 +56,6 @@ public class FinalizeTest
 
         var Matches = Board.Remove(RemovedGame);       
 
-        Assert.AreEqual(ExpectedMatchList,Matches);
+        CollectionAssert.DoesNotContain(Matches,RemovedGame);
     }
 }

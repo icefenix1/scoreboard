@@ -15,5 +15,23 @@ namespace ScoreCard.Models
             Home = home;
             Away = away;
         }
+
+        public override bool Equals(object obj)
+        {
+            if((!Home.Equals(((Game)obj).Home)))
+            {
+                return false;
+            }else if(!Away.Equals(((Game)obj).Away))
+            {
+                return false;
+            }
+
+            return true;
+        }
+        
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }

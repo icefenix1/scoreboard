@@ -78,7 +78,7 @@ private readonly List<Game> ExpectedMatchListWithEqualScore = new List<Game> {
 
         var Matches = Board.Update(UpdatedGame);       
 
-        Assert.AreEqual(ExpectedSingleInProgressMatchList,Matches);
+        CollectionAssert.AreEqual(ExpectedSingleInProgressMatchList,Matches);
     }
 
     [TestMethod]
@@ -88,7 +88,7 @@ private readonly List<Game> ExpectedMatchListWithEqualScore = new List<Game> {
 
         var Matches = Board.Update(UpdatedGame);       
 
-        Assert.AreEqual(ExpectedMatchList,Matches);
+        CollectionAssert.AreEqual(ExpectedMatchList,Matches);
     }
 
     [TestMethod]
@@ -98,6 +98,6 @@ private readonly List<Game> ExpectedMatchListWithEqualScore = new List<Game> {
 
         var Matches = Board.Update(UpdatedGame);       
 
-        Assert.AreEqual(ExpectedMatchListWithEqualScore,Matches);
+        CollectionAssert.AreEqual(ExpectedMatchListWithEqualScore,Matches);
     }
 }

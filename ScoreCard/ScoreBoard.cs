@@ -4,26 +4,34 @@ namespace ScoreCard;
 public class ScoreBoard
 {
 
-    private List<Game> Matches {get; set;}
+    private List<Match> Matches = new List<Match>();
 
     public ScoreBoard()
     {
-        Matches = new List<Game>();
+
     }
 
     public List<Game> Add(Game match)
-    {
-        return new List<Game>();
+    {        
+        Matches.Add(new Match(match));
+        return Get();
     }
 
     public List<Game> Update(Game match)
     {
-        return new List<Game>();
+        return Get();
     }
 
     public List<Game> Remove(Game match)
     {
-        return new List<Game>();
+        return Get();
+    }
+
+    private List<Game> Get()
+    {
+        var toReturn = new List<Game>();
+        toReturn.AddRange(Matches.OrderByDescending(ts => ts.TotalScore).OrderByDescending(start => start.TimeStarted).Select(sel => sel.CurrentGame).ToList());
+        return toReturn;
     }
 
 }
