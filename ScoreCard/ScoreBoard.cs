@@ -24,14 +24,31 @@ public class ScoreBoard
 
     public List<Game> Remove(Game match)
     {
+        if(MatchExists(match))
+        {
+            Matches.RemoveAt(GetMatchIndex(match));
+        }
         return Get();
     }
 
-    private List<Game> Get()
+    private bool MatchExists(Game match)
     {
-        var toReturn = new List<Game>();
-        toReturn.AddRange(Matches.OrderByDescending(ts => ts.TotalScore).OrderByDescending(start => start.TimeStarted).Select(sel => sel.CurrentGame).ToList());
-        return toReturn;
+        return Matches.Any(i => 
+            i.CurrentGame.Away.Name == match.Away.Name && 
+            i.CurrentGame.Home.Name == match.Home.Name);
+    }
+
+    private int GetMatchIndex(Game match)
+    {
+        var item = Matches.First(i => 
+            i.CurrentGame.Away.Name == match.Away.Name && 
+            i.CurrentGame.Home.Name == match.Home.Name);
+        return Matches.IndexOf(item);
+    }
+
+    private List<Game> Get()
+    {        
+        return Matches.OrderByDescending(ts => ts.TotalScore).OrderByDescending(start => start.TimeStarted).Select(sel => sel.CurrentGame).ToList();
     }
 
 }
