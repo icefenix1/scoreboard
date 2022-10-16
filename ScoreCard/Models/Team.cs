@@ -20,7 +20,12 @@ namespace ScoreCard.Models
         {
             return Name == ((Team)obj).Name && Score == ((Team)obj).Score;
         }
-        
+
+        internal void UpdateScore(int update)
+        {
+            Score = update;
+        }
+
         public override int GetHashCode()
         {
             return base.GetHashCode();

@@ -16,6 +16,12 @@ namespace ScoreCard.Models
             Away = away;
         }
 
+        internal void Update(Game update)
+        {
+            Home.UpdateScore(update.Home.Score);
+            Away.UpdateScore(update.Away.Score);
+        }
+
         public override bool Equals(object obj)
         {
             if((!Home.Equals(((Game)obj).Home)))

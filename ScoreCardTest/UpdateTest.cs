@@ -17,10 +17,10 @@ public class UpdateTest
 
     private readonly List<Game> InProgressMatchList = new List<Game> {
         new Game(new Team("South Africa", 1), new Team("Norway",9)),
-        new Game(new Team("Mexico", 4), new Team("Canada",1)),
-        new Game(new Team("Spain",2), new Team("Brazil",4)),
+        new Game(new Team("Mexico", 5), new Team("Canada",1)),
+        new Game(new Team("Spain",3), new Team("Brazil",4)),
         new Game(new Team("Germany",1), new Team("France",0)),
-        new Game(new Team("Uruguay",1), new Team("Italy",3)),
+        new Game(new Team("Uruguay",2), new Team("Italy",3)),
         new Game(new Team("Argentina",3), new Team("Australia",1))}; 
 
     private readonly Game SingleInProgress = new Game(new Team("South Africa", 1), new Team("Norway",9));           
@@ -41,9 +41,9 @@ private readonly List<Game> ExpectedMatchListWithEqualScore = new List<Game> {
     private readonly List<Game> InProgressMatchListWithEqualScore = new List<Game> {
         new Game(new Team("South Africa", 1), new Team("Norway",9)),
         new Game(new Team("Mexico", 10), new Team("Canada",1)),
-        new Game(new Team("Spain",2), new Team("Brazil",4)),
+        new Game(new Team("Spain",3), new Team("Brazil",4)),
         new Game(new Team("Germany",1), new Team("France",0)),
-        new Game(new Team("Uruguay",1), new Team("Italy",3)),
+        new Game(new Team("Uruguay",2), new Team("Italy",3)),
         new Game(new Team("Argentina",3), new Team("Australia",1))};
 
     private readonly Game UpdatedGame = new Game(new Team("South Africa", 1), new Team("Norway",10));    

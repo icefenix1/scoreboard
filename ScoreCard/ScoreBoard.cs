@@ -19,6 +19,10 @@ public class ScoreBoard
 
     public List<Game> Update(Game match)
     {
+        if(MatchExists(match))
+        {
+            Matches[GetMatchIndex(match)].CurrentGame.Update(match);
+        }
         return Get();
     }
 
@@ -47,8 +51,8 @@ public class ScoreBoard
     }
 
     private List<Game> Get()
-    {        
-        return Matches.OrderByDescending(ts => ts.TotalScore).OrderByDescending(start => start.TimeStarted).Select(sel => sel.CurrentGame).ToList();
+    {   
+        return Matches.OrderByDescending(ts => ts.TotalScore).ThenByDescending(start => start.TimeStarted).Select(sel => sel.CurrentGame).ToList();
     }
 
 }
